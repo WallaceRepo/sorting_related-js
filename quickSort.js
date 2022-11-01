@@ -48,3 +48,21 @@ function subSumArr() {
      return arr;
  }
  log(zeros([0,7,0,15,0]))
+
+/// quickSort
+// worse when arr already sorted: OT(n^2)
+// average is O(logn)
+
+function quick( arr) {
+     if(arr.length < 2) return arr
+     let pivot = arr[arr.length-1]
+     let left = []
+     let right = []
+     for (let i = 0; i < arr.length-1; i++ ) {
+         if( arr[i] < pivot) left.push(arr[i])
+         else right.push(arr[i])
+     }
+     return [...quick(left),pivot, ...quick(right)]
+}
+
+console.log(quick([2,1,5,3,1, 25, 12]))
