@@ -1,6 +1,27 @@
 
 // Slowest Sorting Algo O(n^2) time complexity
+function Bubble(ar ) {
+    let len = ar.length;
+    
+   while (true) {
+       len--;
+       let swapped = false;
+    for ( let i = 0; i < len; i++) {
+        let a = ar[i]
+        let b = ar[i+1]
+        if ( a > b) {
+            ar[i] = b
+            ar[ i + 1] = a
+            swapped = true;
+          }
+       }
+      if ( !swapped) break;
+    }
+    return ar
+}
+console.log(Bubble([2,50,4,1,0]))
 
+// nested for loop used
 function bubbleSort(arr) {
     
     for ( let i = arr.length-1; i > 0; i-- ) {
