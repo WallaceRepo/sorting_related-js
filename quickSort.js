@@ -52,7 +52,7 @@ function subSumArr() {
 /// quickSort
 // worse when arr already sorted: OT(n^2)
 // average is O(logn)
-
+//used extra space 
 function quick( arr) {
      if(arr.length < 2) return arr
      let pivot = arr[arr.length-1]
@@ -65,4 +65,36 @@ function quick( arr) {
      return [...quick(left),pivot, ...quick(right)]
 }
 
-console.log(quick([2,1,5,3,1, 25, 12]))
+console.log(quick([2,1,5,3,1, 25, 12]));
+
+// quick sort using aux functions
+function quickSort(arr, start, end) {
+      
+      if( start >= end) return;
+      
+      let index = partition( arr, start, end)
+      
+      quickSort( arr, start, index-1)
+      quickSort( arr, index + 1, end)
+     
+     return arr;
+} 
+function partition(arr, start, end) {
+      let index = start;
+      let pivot = arr[end];
+      
+      for ( let i = start; i < end; i++) {
+          if( arr[i] < pivot) {
+              swap( arr, i, index)
+              index++
+          }
+      }
+     swap(arr, index, end)
+    return index;
+}
+function swap(arr, a, b) {
+    let temp = arr[a]
+         arr[a] = arr[b]
+         arr[b] = temp
+}
+console.log(quickSort([7,4,3,2,5], 0, 4))
