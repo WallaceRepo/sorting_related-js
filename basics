@@ -1,0 +1,33 @@
+let log = console.log
+function fib(n) {
+   let arr = [0, 1]
+   let first
+   let second
+   
+   while( arr.length < n) {
+         first = arr[arr.length-1]
+         second = arr[arr.length-2]
+       let three = first + second;
+       arr.push(three)
+       
+   }
+   return arr
+}
+log( fib(10));
+// [ 0, 1, 1, 2, 3, 5, 8, 13, 21, 34 ]
+
+function fib(n) {
+    let first = 0;
+    let second = 1;
+    log( first);
+    log( second)
+    while(n-2) {
+      let third = first + second;
+       console.log(third);
+       first = second;
+       second = third
+       n--
+    }
+}
+log( fib(10));
+
